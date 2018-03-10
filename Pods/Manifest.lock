@@ -1,0 +1,45 @@
+PODS:
+  - Alamofire (4.6.0)
+  - CalendarKit (0.3.0):
+    - DateToolsSwift
+    - Neon
+  - CRRefresh (1.0.6)
+  - DateToolsSwift (2.0.3)
+  - DynamicBlurView (2.0.2)
+  - EFQRCode (4.2.1)
+  - Kingfisher (4.6.2)
+  - Neon (0.4.0)
+  - PopupDialog (0.7.0):
+    - DynamicBlurView (~> 2.0)
+  - SwiftMoment (0.7)
+  - SwiftyJSON (4.0.0)
+  - SwipeCellKit (2.0.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.5)
+  - CalendarKit
+  - CRRefresh
+  - EFQRCode (~> 4.0)
+  - Kingfisher (~> 4.0)
+  - PopupDialog (~> 0.6)
+  - SwiftMoment
+  - SwiftyJSON
+  - SwipeCellKit
+
+SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  CalendarKit: 6a13681eb662d20c22faaa064cb57e0a2a1c4852
+  CRRefresh: fa89bab742592500ce9f76301c152544ec5264e8
+  DateToolsSwift: bf69bf9056d9e53c5c03f06e51f219b9b8b02f9e
+  DynamicBlurView: aa6db4defc6e537eb86fc5e58dd3991666178399
+  EFQRCode: f3fd67049faa07adb575495c05d72a34e407a940
+  Kingfisher: 55b9c395bf8d3949676ad3861111923990ab68cf
+  Neon: 7fb5a9327e7e57911843f608e08f4893a74deaf9
+  PopupDialog: 4abc6db5b22b7c8029e2162bde8891ee6aa4b6c8
+  SwiftMoment: dc6dd27012e267819104cbb03f74ff9192dd0b42
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  SwipeCellKit: 76888d93d1843dc568fdf38fff21b15dbbcf6b28
+
+PODFILE CHECKSUM: 977f725d77c9c53e1e2ad98a3ddf0fc3090c7f53
+
+COCOAPODS: 1.2.0

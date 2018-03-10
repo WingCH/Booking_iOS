@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Booking
-//
-//  Created by Chan Hong Wing on 16/12/2017.
-//  Copyright © 2017年 BookingTeam. All rights reserved.
-//
 
 import UIKit
 
@@ -13,6 +6,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    struct recordSearchSettings {
+        static var type:String! = "video"
+        
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

@@ -1,0 +1,6 @@
+framework module Pods_BookingUITests {
+  umbrella header "Pods-BookingUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

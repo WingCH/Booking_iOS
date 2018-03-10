@@ -1,10 +1,3 @@
-//
-//  BookingTests.swift
-//  BookingTests
-//
-//  Created by Chan Hong Wing on 16/12/2017.
-//  Copyright © 2017年 BookingTeam. All rights reserved.
-//
 
 import XCTest
 @testable import Booking
