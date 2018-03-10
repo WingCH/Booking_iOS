@@ -2,6 +2,8 @@
 import UIKit
 import SwiftMoment
 
+//test
+
 class Booking: NSObject {
     var id : Int
     var room_id : Int
