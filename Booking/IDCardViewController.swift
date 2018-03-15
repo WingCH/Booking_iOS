@@ -31,8 +31,10 @@ class IDCardViewController: UIViewController {
     }
 
     @IBAction func logout(_ sender: UIBarButtonItem) {
+        //https://coderwall.com/p/cjuzng/swift-instantiate-a-view-controller-using-its-storyboard-name-in-xcode
         self.userDefault.removeObject(forKey: "userInfo")
-        self.performSegue(withIdentifier: "logoutToMain", sender: nil)
+        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginPage") as UIViewController
+        self.present(viewController, animated: false, completion: nil)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

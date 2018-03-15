@@ -8,7 +8,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     struct recordSearchSettings {
         static var type:String! = "video"
-        
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

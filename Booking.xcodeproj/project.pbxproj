@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		201B7933205A6D15004CAFEC /* AVCaptureSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201B7930205A6D15004CAFEC /* AVCaptureSessionManager.swift */; };
+		201B7934205A6D15004CAFEC /* UIImage+ZZYQRCodeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201B7931205A6D15004CAFEC /* UIImage+ZZYQRCodeImage.swift */; };
+		201B7935205A6D15004CAFEC /* ZZYQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 201B7932205A6D15004CAFEC /* ZZYQRCode.bundle */; };
 		202034AF1FFB735200DCD534 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202034AE1FFB735200DCD534 /* Room.swift */; };
 		202034B11FFB783800DCD534 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202034B01FFB783800DCD534 /* Booking.swift */; };
 		202034B31FFBB3C400DCD534 /* RoomDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202034B21FFBB3C400DCD534 /* RoomDetailViewController.swift */; };
@@ -14,6 +17,7 @@
 		202034B91FFBB42E00DCD534 /* StyleGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202034B71FFBB42E00DCD534 /* StyleGenerator.swift */; };
 		207C5A7E2024733B00739CFC /* Stryng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C5A7D2024733B00739CFC /* Stryng.swift */; };
 		209430CC1FF2248E00F3BDC0 /* IDCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209430CB1FF2248E00F3BDC0 /* IDCardViewController.swift */; };
+		20A6C2742057A9FB0082F6F4 /* DesignableUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6C2732057A9FB0082F6F4 /* DesignableUITextField.swift */; };
 		20BF6DA41FE50ECD001FE977 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BF6DA31FE50ECD001FE977 /* AppDelegate.swift */; };
 		20BF6DA61FE50ECD001FE977 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BF6DA51FE50ECD001FE977 /* LoginViewController.swift */; };
 		20BF6DA91FE50ECD001FE977 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BF6DA71FE50ECD001FE977 /* Main.storyboard */; };
@@ -23,6 +27,7 @@
 		20BF6DC41FE50ECE001FE977 /* BookingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BF6DC31FE50ECE001FE977 /* BookingUITests.swift */; };
 		20BF6DD21FE52D62001FE977 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BF6DD11FE52D62001FE977 /* RegisterViewController.swift */; };
 		20BF6DD41FE53BA1001FE977 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BF6DD31FE53BA1001FE977 /* HistoryViewController.swift */; };
+		20C1CC77205A6A740008135A /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C1CC76205A6A740008135A /* ScanViewController.swift */; };
 		20FE3C742037CECF00FEBD6E /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE3C732037CECF00FEBD6E /* RoomsViewController.swift */; };
 		8B3AEB08BB1FB5AB40676B8B /* Pods_BookingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07590099FE1E04946E916913 /* Pods_BookingTests.framework */; };
 		9063060CA7FB4450D40E1CFE /* Pods_Booking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894EB893C443391628107BE3 /* Pods_Booking.framework */; };
@@ -48,6 +53,9 @@
 
 /* Begin PBXFileReference section */
 		07590099FE1E04946E916913 /* Pods_BookingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		201B7930205A6D15004CAFEC /* AVCaptureSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVCaptureSessionManager.swift; sourceTree = "<group>"; };
+		201B7931205A6D15004CAFEC /* UIImage+ZZYQRCodeImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ZZYQRCodeImage.swift"; sourceTree = "<group>"; };
+		201B7932205A6D15004CAFEC /* ZZYQRCode.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZZYQRCode.bundle; sourceTree = "<group>"; };
 		202034AE1FFB735200DCD534 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		202034B01FFB783800DCD534 /* Booking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
 		202034B21FFBB3C400DCD534 /* RoomDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomDetailViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +63,7 @@
 		202034B71FFBB42E00DCD534 /* StyleGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleGenerator.swift; sourceTree = "<group>"; };
 		207C5A7D2024733B00739CFC /* Stryng.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stryng.swift; sourceTree = "<group>"; };
 		209430CB1FF2248E00F3BDC0 /* IDCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardViewController.swift; sourceTree = "<group>"; };
+		20A6C2732057A9FB0082F6F4 /* DesignableUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableUITextField.swift; sourceTree = "<group>"; };
 		20BF6DA01FE50ECD001FE977 /* Booking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BF6DA31FE50ECD001FE977 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20BF6DA51FE50ECD001FE977 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +79,7 @@
 		20BF6DC51FE50ECE001FE977 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20BF6DD11FE52D62001FE977 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		20BF6DD31FE53BA1001FE977 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		20C1CC76205A6A740008135A /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		20FE3C732037CECF00FEBD6E /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		61A29A2BFD5CD7E8583D5EA4 /* Pods-BookingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookingTests/Pods-BookingTests.release.xcconfig"; sourceTree = "<group>"; };
 		67BA77E21F63A8D6603039C4 /* Pods-Booking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Booking.release.xcconfig"; path = "Pods/Target Support Files/Pods-Booking/Pods-Booking.release.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +119,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		201B792F205A6D15004CAFEC /* ZZYQRCodeSwift */ = {
+			isa = PBXGroup;
+			children = (
+				201B7930205A6D15004CAFEC /* AVCaptureSessionManager.swift */,
+				201B7931205A6D15004CAFEC /* UIImage+ZZYQRCodeImage.swift */,
+				201B7932205A6D15004CAFEC /* ZZYQRCode.bundle */,
+			);
+			path = ZZYQRCodeSwift;
+			sourceTree = "<group>";
+		};
 		202034B51FFBB40900DCD534 /* CalendarKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,7 +163,9 @@
 		20BF6DA21FE50ECD001FE977 /* Booking */ = {
 			isa = PBXGroup;
 			children = (
+				201B792F205A6D15004CAFEC /* ZZYQRCodeSwift */,
 				207C5A7D2024733B00739CFC /* Stryng.swift */,
+				20A6C2732057A9FB0082F6F4 /* DesignableUITextField.swift */,
 				202034B51FFBB40900DCD534 /* CalendarKit */,
 				20BF6DA31FE50ECD001FE977 /* AppDelegate.swift */,
 				20BF6DA51FE50ECD001FE977 /* LoginViewController.swift */,
@@ -154,6 +176,7 @@
 				20FE3C732037CECF00FEBD6E /* RoomsViewController.swift */,
 				202034B21FFBB3C400DCD534 /* RoomDetailViewController.swift */,
 				209430CB1FF2248E00F3BDC0 /* IDCardViewController.swift */,
+				20C1CC76205A6A740008135A /* ScanViewController.swift */,
 				20BF6DA71FE50ECD001FE977 /* Main.storyboard */,
 				20BF6DAA1FE50ECD001FE977 /* Assets.xcassets */,
 				20BF6DAC1FE50ECD001FE977 /* LaunchScreen.storyboard */,
@@ -322,6 +345,7 @@
 				20BF6DAE1FE50ECD001FE977 /* LaunchScreen.storyboard in Resources */,
 				20BF6DAB1FE50ECD001FE977 /* Assets.xcassets in Resources */,
 				20BF6DA91FE50ECD001FE977 /* Main.storyboard in Resources */,
+				201B7935205A6D15004CAFEC /* ZZYQRCode.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,17 +509,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				207C5A7E2024733B00739CFC /* Stryng.swift in Sources */,
+				201B7934205A6D15004CAFEC /* UIImage+ZZYQRCodeImage.swift in Sources */,
+				20C1CC77205A6A740008135A /* ScanViewController.swift in Sources */,
 				20FE3C742037CECF00FEBD6E /* RoomsViewController.swift in Sources */,
 				202034B31FFBB3C400DCD534 /* RoomDetailViewController.swift in Sources */,
 				202034B91FFBB42E00DCD534 /* StyleGenerator.swift in Sources */,
 				20BF6DD41FE53BA1001FE977 /* HistoryViewController.swift in Sources */,
 				20BF6DD21FE52D62001FE977 /* RegisterViewController.swift in Sources */,
 				202034AF1FFB735200DCD534 /* Room.swift in Sources */,
+				201B7933205A6D15004CAFEC /* AVCaptureSessionManager.swift in Sources */,
 				20BF6DA61FE50ECD001FE977 /* LoginViewController.swift in Sources */,
 				20BF6DA41FE50ECD001FE977 /* AppDelegate.swift in Sources */,
 				202034B81FFBB42E00DCD534 /* DatePickerController.swift in Sources */,
 				209430CC1FF2248E00F3BDC0 /* IDCardViewController.swift in Sources */,
 				202034B11FFB783800DCD534 /* Booking.swift in Sources */,
+				20A6C2742057A9FB0082F6F4 /* DesignableUITextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

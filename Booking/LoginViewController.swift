@@ -9,36 +9,39 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailLabel: UITextField!
     @IBOutlet weak var passwordLabel: UITextField!
     
-
-    
-
     let userDefault = UserDefaults.standard
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //Check Already logged in
+        if let user:[String : Any] = self.userDefault.object(forKey: "userInfo") as? [String : Any] {
+            print("Already logged in")
+            if user["role"] as! String! == "admin"{
+                print("Admin! Go to admin page")
+                self.performSegue(withIdentifier: "adminLogin", sender: nil)
+            }else{
+                print("User! Go to user page")
+                self.performSegue(withIdentifier: "loginToList", sender: nil)
+            }
+        }
+        
+        emailLabel.borderStyle = UITextBorderStyle.roundedRect
+        passwordLabel.borderStyle = UITextBorderStyle.roundedRect
+        
+        emailLabel.text = "admin@booking.com";
+        passwordLabel.text = "123456";
+        
+    }
     
     //進入頁面時隱藏navbar
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         super.viewWillAppear(animated)
-        
-        
-        if let user:[String : Any] = self.userDefault.object(forKey: "userInfo") as? [String : Any] {
-            print(user)
-            self.performSegue(withIdentifier: "loginToList", sender: nil)
-        }
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        emailLabel.text = "abc@demo.com";
-        passwordLabel.text = "123456";
-        // Do any additional setup after loading the view, typically from a nib.
-
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func login(_ sender: UIButton) {
@@ -48,14 +51,14 @@ class LoginViewController: UIViewController {
             "password": passwordLabel.text!
         ]
         
-        print(parameters);
+        //print(parameters);
         
         Alamofire.request("http://www.booking.wingpage.net/iOSLogin", method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON { response in
             
             switch response.result {
             case .success:
                 if let data = response.data{
-                    print("Login成功")
+                    //print("Login成功")
                     
                     do{
                         // get return data
@@ -65,11 +68,20 @@ class LoginViewController: UIViewController {
                         let userArray : [String : Any] =
                             ["name":json["name"].string!,
                              "email":json["email"].string!,
-                             "id":json["id"].int!]
+                             "id":json["id"].int!,
+                             "role":json["role"].string ?? "user"]
                         //save data to userDefault
                         self.userDefault.set(userArray, forKey: "userInfo")
                         self.userDefault.synchronize()
-                        self.performSegue(withIdentifier: "loginToList", sender: nil)
+                        
+                        if userArray["role"] as! String! == "admin"{
+                            print("Admin! Go to admin page")
+                            self.performSegue(withIdentifier: "adminLogin", sender: nil)
+                        }else{
+                            print("User! Go to user page")
+                            self.performSegue(withIdentifier: "loginToList", sender: nil)
+                        }
+                        
                     }catch let error {
                         print(error)
                     }
