@@ -3,6 +3,8 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import PopupDialog
+
 
 class LoginViewController: UIViewController {
     
@@ -28,7 +30,8 @@ class LoginViewController: UIViewController {
         
         emailLabel.borderStyle = UITextBorderStyle.roundedRect
         passwordLabel.borderStyle = UITextBorderStyle.roundedRect
-        
+        //admin@booking.com
+        //abc@demo.com
         emailLabel.text = "admin@booking.com";
         passwordLabel.text = "123456";
         
@@ -83,16 +86,32 @@ class LoginViewController: UIViewController {
                         }
                         
                     }catch let error {
-                        print(error)
+                        self.showErrorDialog(error: error.localizedDescription)
                     }
                     
                     
                 }
-            case .failure(let error):
-                print("Login失敗")
-                print(error)
+            case .failure(_):
+                self.showErrorDialog(error: "Login failed!!!")
+
             }
         }
+    }
+    
+    func showErrorDialog(error:String) {
+        
+        let title = "Error"
+        let message = error
+        
+        let popup = PopupDialog(title: title, message: message)
+        
+        let okButton = CancelButton(title: "OK") {
+            print("You canceled the car dialog.")
+        }
+        popup.addButtons([okButton])
+        popup.transitionStyle = .bounceUp
+        
+        self.present(popup, animated: true, completion: nil)
     }
     
     //離開頁面時取消隱藏navbar

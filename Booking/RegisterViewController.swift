@@ -1,6 +1,7 @@
 
 import UIKit
 import Alamofire
+import PopupDialog
 
 class RegisterViewController: UIViewController {
     

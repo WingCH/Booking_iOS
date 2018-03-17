@@ -15,6 +15,8 @@ target 'Booking' do
    pod "EFQRCode", '~> 4.0'
    pod 'SwipeCellKit'
    pod 'CRRefresh'
+   pod 'NVActivityIndicatorView'
+
 
 
   target 'BookingTests' do

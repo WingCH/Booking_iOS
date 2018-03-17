@@ -19,20 +19,23 @@ class IDCardViewController: UIViewController {
         email.text = user!["email"]! as? String
         
         
-        if let qrCode = EFQRCode.generate(
-            content: "\(user!["id"]!)"
-            ) {
-            qrCodeView.image = UIImage(cgImage: qrCode)
-            print("Create QRCode image success!")
-        } else {
-            print("Create QRCode image failed!")
-        }
+//        if let qrCode = EFQRCode.generate(
+//            content: "\(user!["id"]!)"
+//            ) {
+//            qrCodeView.image = UIImage(cgImage: qrCode)
+//            print("Create QRCode image success!")
+//        } else {
+//            print("Create QRCode image failed!")
+//        }
         
     }
 
     @IBAction func logout(_ sender: UIBarButtonItem) {
         //https://coderwall.com/p/cjuzng/swift-instantiate-a-view-controller-using-its-storyboard-name-in-xcode
+        
+        //移除儲存在userDefault的user資料
         self.userDefault.removeObject(forKey: "userInfo")
+        //利用Storyboard ID 去翻個Login頁面
         let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginPage") as UIViewController
         self.present(viewController, animated: false, completion: nil)
     }

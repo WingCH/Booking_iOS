@@ -1,8 +1,13 @@
 
 
 import UIKit
+import NVActivityIndicatorView
+import PopupDialog
+import Alamofire
+import SwiftyJSON
+import SwiftMoment
 
-class ScanViewController: UIViewController, UINavigationControllerDelegate{
+class ScanViewController: UIViewController, UINavigationControllerDelegate, NVActivityIndicatorViewable{
     let userDefault = UserDefaults.standard
     var sessionManager:AVCaptureSessionManager?
     var link: CADisplayLink?
@@ -17,7 +22,7 @@ class ScanViewController: UIViewController, UINavigationControllerDelegate{
             
             self.sessionManager = AVCaptureSessionManager(captureType: .AVCaptureTypeBoth, scanRect: CGRect.null, success: { (result) in
                 if let r = result {
-                    self .showResult(result: r)
+                    self.showResult(result: r)
                 }
             })
             self.sessionManager?.showPreViewLayerIn(view: self.view)
@@ -32,9 +37,6 @@ class ScanViewController: UIViewController, UINavigationControllerDelegate{
             con.addAction(action)
             self.present(con, animated: true, completion: nil)
         }
-        
-
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,23 +65,112 @@ class ScanViewController: UIViewController, UINavigationControllerDelegate{
     
     
     func showResult(result: String) {
-        let alert = UIAlertController(title: "掃描結果", message: result, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK!", style: .default) { (UIAlertAction) in
-            self.sessionManager?.start()
+        start_loadingView()
+        
+        Alamofire.request("http://www.booking.wingpage.net/iOSGetBookingByBookingID/\(result)").response { response in
+            if let data = response.data{
+                do{
+                    let bookingData: JSON = try JSON(data: data)
+                    
+                    let booking : Booking = Booking(id: bookingData["id"].int!,
+                                                    room_id: bookingData["room_id"].int!,
+                                                    user_id: bookingData["user_id"].int!,
+                                                    start: self.changeToMoment(date: bookingData["start"].string!),
+                                                    end: self.changeToMoment(date: bookingData["end"].string!),
+                                                    status: bookingData["status"].string!,
+                                                    room: Room(id: bookingData["room"]["id"].int!, name: bookingData["room"]["name"].string!, descriptions: bookingData["room"]["description"].string!, address: bookingData["room"]["address"].string!, backgroundImage: bookingData["room"]["backgroundImage"].string!))
+                    
+                    let message =
+                        "User : \(bookingData["user"]["name"].string!)\n\n" +
+                            "Room : \(bookingData["room"]["name"].string!)\n" +
+                    "Time :\n\n \(self.changeToMoment(date: bookingData["start"].string!)) \nto\n \(self.changeToMoment(date: bookingData["end"].string!))\n"
+                    
+                    
+                    self.showDialog(title: "Info", message: message,booking_id: bookingData["id"].int!)
+                }catch let error {
+                    self.showDialog(title: "Error", message: error.localizedDescription, booking_id: nil);
+                }
+            }
         }
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
+        
     }
     
     @IBAction func logout(_ sender: UIBarButtonItem) {
         //https://coderwall.com/p/cjuzng/swift-instantiate-a-view-controller-using-its-storyboard-name-in-xcode
+        //移除儲存在userDefault的user資料
         self.userDefault.removeObject(forKey: "userInfo")
+        //利用Storyboard ID 去翻個Login頁面
         let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginPage") as UIViewController
         self.present(viewController, animated: false, completion: nil)
-
     }
     
+    func showDialog(animated: Bool = true, title: String,message: String, booking_id: Int?) {
+        self.stop_loadingView()
+        // Create the dialog
+        let popup = PopupDialog(title: title,
+                                message: message,
+                                buttonAlignment: .horizontal,
+                                transitionStyle: .bounceUp,
+                                gestureDismissal: true,
+                                hideStatusBar: false)
+        
 
+        if (booking_id == nil){
+            let ok_Button = CancelButton(title: "OK") {
+                self.sessionManager?.start()
+            }
+            popup.addButtons([ok_Button])
+        }else{
+            let checkIn_Button = DefaultButton(title: "Check In", dismissOnTap: false) {
+                
+                let parameters: Parameters = [
+                    "booking_id": booking_id!,
+                    "status": "Attend"
+                ]
+                Alamofire.request("http://www.booking.wingpage.net/iOSUpdateStatus", method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseString { response in
 
-
+                    switch response.result {
+                    case .success:
+                        popup.dismiss()
+                    case .failure(let error):
+                        print(error)
+                        popup.shake()
+                    }
+                }
+                self.sessionManager?.start()
+            }
+            popup.addButtons([checkIn_Button])
+        }
+        // Present dialog
+        self.present(popup, animated: animated, completion: nil)
+    }
+    
+    func start_loadingView() {
+        let size = CGSize(width: 30, height: 30)
+        startAnimating(size, message: "Loading...", type: NVActivityIndicatorType(rawValue: 17)!)
+        
+    }
+    
+    func stop_loadingView() {
+        stopAnimating()
+    }
+    
+    
+    
+    
+    
+    func changeToMoment(date : String) -> Moment{
+        //因為moment有問題 https://github.com/akosma/SwiftMoment/issues/101
+        //臨時解決方法：直接用moment(year,month,day,hour,minute,second) 可以避免個bug
+        //eg: 2018-01-04 11:00:00
+        //硬柝String
+        let year = Int(date[0...3]!)
+        let month = Int(date[5...6]!)
+        let day = Int(date[8...9]!)
+        let hour = Int(date[11...12]!)
+        let minute = Int(date[14...15]!)
+        let second = Int(date[17...18]!)
+        
+        return moment([year!, month!, day!, hour!, minute!, second!])!
+    }
 }

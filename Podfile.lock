@@ -9,6 +9,9 @@ PODS:
   - EFQRCode (4.2.1)
   - Kingfisher (4.6.2)
   - Neon (0.4.0)
+  - NVActivityIndicatorView (4.1.1):
+    - NVActivityIndicatorView/Presenter (= 4.1.1)
+  - NVActivityIndicatorView/Presenter (4.1.1)
   - PopupDialog (0.7.0):
     - DynamicBlurView (~> 2.0)
   - SwiftMoment (0.7)
@@ -21,6 +24,7 @@ DEPENDENCIES:
   - CRRefresh
   - EFQRCode (~> 4.0)
   - Kingfisher (~> 4.0)
+  - NVActivityIndicatorView
   - PopupDialog (~> 0.6)
   - SwiftMoment
   - SwiftyJSON
@@ -35,11 +39,12 @@ SPEC CHECKSUMS:
   EFQRCode: f3fd67049faa07adb575495c05d72a34e407a940
   Kingfisher: 55b9c395bf8d3949676ad3861111923990ab68cf
   Neon: 7fb5a9327e7e57911843f608e08f4893a74deaf9
+  NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
   PopupDialog: 4abc6db5b22b7c8029e2162bde8891ee6aa4b6c8
   SwiftMoment: dc6dd27012e267819104cbb03f74ff9192dd0b42
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   SwipeCellKit: 76888d93d1843dc568fdf38fff21b15dbbcf6b28
 
-PODFILE CHECKSUM: 5d29509ca14d52e091b605e68a393c0ed4f8dae0
+PODFILE CHECKSUM: 26af389a499cd4aafa49360fee5a4ce71b9a4b70
 
 COCOAPODS: 1.2.0

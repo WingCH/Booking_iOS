@@ -163,17 +163,17 @@
 		20BF6DA21FE50ECD001FE977 /* Booking */ = {
 			isa = PBXGroup;
 			children = (
+				20BF6DA31FE50ECD001FE977 /* AppDelegate.swift */,
 				201B792F205A6D15004CAFEC /* ZZYQRCodeSwift */,
+				202034B51FFBB40900DCD534 /* CalendarKit */,
 				207C5A7D2024733B00739CFC /* Stryng.swift */,
 				20A6C2732057A9FB0082F6F4 /* DesignableUITextField.swift */,
-				202034B51FFBB40900DCD534 /* CalendarKit */,
-				20BF6DA31FE50ECD001FE977 /* AppDelegate.swift */,
+				202034B01FFB783800DCD534 /* Booking.swift */,
+				202034AE1FFB735200DCD534 /* Room.swift */,
 				20BF6DA51FE50ECD001FE977 /* LoginViewController.swift */,
 				20BF6DD11FE52D62001FE977 /* RegisterViewController.swift */,
-				202034B01FFB783800DCD534 /* Booking.swift */,
-				20BF6DD31FE53BA1001FE977 /* HistoryViewController.swift */,
-				202034AE1FFB735200DCD534 /* Room.swift */,
 				20FE3C732037CECF00FEBD6E /* RoomsViewController.swift */,
+				20BF6DD31FE53BA1001FE977 /* HistoryViewController.swift */,
 				202034B21FFBB3C400DCD534 /* RoomDetailViewController.swift */,
 				209430CB1FF2248E00F3BDC0 /* IDCardViewController.swift */,
 				20C1CC76205A6A740008135A /* ScanViewController.swift */,

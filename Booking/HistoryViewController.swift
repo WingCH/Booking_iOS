@@ -6,7 +6,7 @@ import SwiftyJSON
 import SwiftMoment
 import CRRefresh
 import PopupDialog
-
+import EFQRCode
 
 class MyCell: SwipeTableViewCell {
     //https://www.ralfebert.de/tutorials/ios-swift-uitableviewcontroller/custom-cells/
@@ -94,15 +94,25 @@ class HistoryViewController: UITableViewController , SwipeTableViewCellDelegate{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(bookedList[indexPath.row].id)
+        if let qrCode = EFQRCode.generate(
+            content: "\(bookedList[indexPath.row].id)"
+            ) {
+            //Create QRCode image success
+            showQRCodeDialog(qrCode: UIImage(cgImage: qrCode))
+        } else {
+            showErrorDialog(error: "Create QRCode image failed!")
+        }
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         //左
         if orientation == .left {
-            let deleteAction = SwipeAction(style: .destructive, title: "Test") { action, indexPath in
-                print("delete")
-            }
-            return [deleteAction]
+//            let deleteAction = SwipeAction(style: .destructive, title: "Test") { action, indexPath in
+//                print("delete")
+//            }
+//            return [deleteAction]
+            return []
         }else{
             //右
             if bookedList[indexPath.row].status == "Ready"{
@@ -111,7 +121,7 @@ class HistoryViewController: UITableViewController , SwipeTableViewCellDelegate{
                 }else{
                     let cancelAction = SwipeAction(style: .default, title: nil) { action, indexPath in
                         
-                        self.showStandardDialog(index: indexPath.row)
+                        self.showBookingDialog(index: indexPath.row)
                     }
                     cancelAction.image = UIImage(named: "cancel")
                     return [cancelAction]
@@ -121,7 +131,40 @@ class HistoryViewController: UITableViewController , SwipeTableViewCellDelegate{
         }
     }
     
-    func showStandardDialog(animated: Bool = true, index: Int) {
+    func showQRCodeDialog(qrCode:UIImage) {
+        
+        let title = "Check In QRCode"
+        let message = "Use this QRCode check in"
+        
+        let popup = PopupDialog(title: title, message: message, image: qrCode)
+        
+        let okButton = CancelButton(title: "OK") {
+            print("You canceled the car dialog.")
+        }
+        popup.addButtons([okButton])
+        popup.transitionStyle = .fadeIn
+        
+        self.present(popup, animated: true, completion: nil)
+    }
+    
+    func showErrorDialog(error:String) {
+        
+        let title = "Error"
+        let message = error
+        
+        let popup = PopupDialog(title: title, message: message)
+        
+        let okButton = CancelButton(title: "OK") {
+            print("You canceled the car dialog.")
+        }
+        popup.addButtons([okButton])
+        popup.transitionStyle = .bounceUp
+        
+        self.present(popup, animated: true, completion: nil)
+    }
+    
+    
+    func showBookingDialog(animated: Bool = true, index: Int) {
         
         let booking = bookedList[index]
         
