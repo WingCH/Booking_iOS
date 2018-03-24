@@ -72,14 +72,6 @@ class ScanViewController: UIViewController, UINavigationControllerDelegate, NVAc
                 do{
                     let bookingData: JSON = try JSON(data: data)
                     
-                    let booking : Booking = Booking(id: bookingData["id"].int!,
-                                                    room_id: bookingData["room_id"].int!,
-                                                    user_id: bookingData["user_id"].int!,
-                                                    start: self.changeToMoment(date: bookingData["start"].string!),
-                                                    end: self.changeToMoment(date: bookingData["end"].string!),
-                                                    status: bookingData["status"].string!,
-                                                    room: Room(id: bookingData["room"]["id"].int!, name: bookingData["room"]["name"].string!, descriptions: bookingData["room"]["description"].string!, address: bookingData["room"]["address"].string!, backgroundImage: bookingData["room"]["backgroundImage"].string!))
-                    
                     let message =
                         "User : \(bookingData["user"]["name"].string!)\n\n" +
                             "Room : \(bookingData["room"]["name"].string!)\n" +
@@ -87,8 +79,9 @@ class ScanViewController: UIViewController, UINavigationControllerDelegate, NVAc
                     
                     
                     self.showDialog(title: "Info", message: message,booking_id: bookingData["id"].int!)
-                }catch let error {
-                    self.showDialog(title: "Error", message: error.localizedDescription, booking_id: nil);
+                }catch _ {
+                    //self.showDialog(title: "Error", message: error.localizedDescription, booking_id: nil);
+                    self.showDialog(title: "Error", message: "Cannot find record", booking_id: nil);
                 }
             }
         }
@@ -109,11 +102,10 @@ class ScanViewController: UIViewController, UINavigationControllerDelegate, NVAc
         // Create the dialog
         let popup = PopupDialog(title: title,
                                 message: message,
-                                buttonAlignment: .horizontal,
+                                buttonAlignment: .vertical,
                                 transitionStyle: .bounceUp,
-                                gestureDismissal: true,
-                                hideStatusBar: false)
-        
+                                gestureDismissal: false,
+                                hideStatusBar: true)
 
         if (booking_id == nil){
             let ok_Button = CancelButton(title: "OK") {
@@ -139,7 +131,11 @@ class ScanViewController: UIViewController, UINavigationControllerDelegate, NVAc
                 }
                 self.sessionManager?.start()
             }
-            popup.addButtons([checkIn_Button])
+            
+            let cancel_Button = CancelButton(title: "Cancel") {
+                self.sessionManager?.start()
+            }
+            popup.addButtons([checkIn_Button,cancel_Button])
         }
         // Present dialog
         self.present(popup, animated: animated, completion: nil)
@@ -154,9 +150,6 @@ class ScanViewController: UIViewController, UINavigationControllerDelegate, NVAc
     func stop_loadingView() {
         stopAnimating()
     }
-    
-    
-    
     
     
     func changeToMoment(date : String) -> Moment{

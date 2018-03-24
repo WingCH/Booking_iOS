@@ -30,25 +30,15 @@ class RoomsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Alamofire.request("http://www.booking.wingpage.net/iOSGetRoomList").response { response in
-            // method defaults to `.get`
-            if let data = response.data{
-                do{
-                    let json: JSON = try JSON(data: data)
-                    
-                    for (_,subJson):(String, JSON) in json {
-                        let room : Room = Room(id: subJson["id"].int!, name: subJson["name"].string!, descriptions: subJson["description"].string!, address: subJson["address"].string!, backgroundImage: subJson["backgroundImage"].string!)
-                        
-                        self.roomList.append(room)
-                    }
-                    self.tableView?.reloadData()
-                }catch let error {
-                    print(error)
-                }
-            }
-        }
+        //https://www.andrewcbancroft.com/2015/03/17/basics-of-pull-to-refresh-for-swift-developers/
+        self.refreshControl?.addTarget(self, action: #selector(RoomsViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+        getData()
+    }
 
+    @objc func handleRefresh(refreshControl: UIRefreshControl) {
+        DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+            self.getData()
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,13 +59,12 @@ class RoomsViewController: UITableViewController {
     }
 
     
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "roomsCell", for: indexPath) as! RoomsCell
         // /photo/rooms/Meeting Room.jpg -> /photo/rooms/Meeting%20Room.jpg
         let path = roomList[indexPath.row].backgroundImage.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         let image_url = URL(string: "http://www.booking.wingpage.net\(path!)")
-        
-        print(image_url!)
 
         cell.name.text = roomList[indexPath.row].name
         cell.background.kf.setImage(with: image_url!)
@@ -88,6 +77,34 @@ class RoomsViewController: UITableViewController {
         print("Click \(indexPath.row)")
         self.performSegue(withIdentifier: "roomToDetail", sender: roomList[indexPath.row])
     }
+    
+    func getData() {
+        self.roomList.removeAll()
+        Alamofire.request("http://www.booking.wingpage.net/iOSGetRoomList").response { response in
+            // method defaults to `.get`
+            if let data = response.data{
+                do{
+                    let json: JSON = try JSON(data: data)
+                    
+                    for (_,subJson):(String, JSON) in json {
+                        let room : Room = Room(id: subJson["id"].int!, name: subJson["name"].string!, descriptions: subJson["description"].string!, address: subJson["address"].string!, backgroundImage: subJson["backgroundImage"].string!)
+                        
+                        self.roomList.append(room)
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
+                        self.refreshControl?.endRefreshing()
+                    })
+                        self.tableView?.reloadData()
+                    
+                    
+                }catch let error {
+                    print(error)
+                }
+            }
+        }
+    }
+    
+
 
 
 

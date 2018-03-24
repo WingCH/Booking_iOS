@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
         passwordLabel.borderStyle = UITextBorderStyle.roundedRect
         //admin@booking.com
         //abc@demo.com
-        emailLabel.text = "admin@booking.com";
+        emailLabel.text = "abc@demo.com";
         passwordLabel.text = "123456";
         
     }

@@ -70,19 +70,18 @@ class HistoryViewController: UITableViewController , SwipeTableViewCellDelegate{
         
         switch bookedList[indexPath.row].status!{
         case "Ready":
-            let now = moment().date;
             
-            if now > bookedList[indexPath.row].start.date{
-                cell.status.text = "Absence";
-                cell.status.backgroundColor = UIColor(red: 217.0/255.0, green: 83.0/255.0, blue: 78.0/255.0, alpha: 1.0)
-            }else{
-                cell.status.text = "Ready";
-                cell.status.backgroundColor = UIColor(red: 90.0/255.0, green: 192.0/255.0, blue: 222.0/255.0, alpha: 1.0)
-            }
+            cell.status.text = "Ready";
+            cell.status.backgroundColor = UIColor(red: 90.0/255.0, green: 192.0/255.0, blue: 222.0/255.0, alpha: 1.0)
+            
             
         case "Attend":
             cell.status.text = "Attend";
             cell.status.backgroundColor = UIColor(red: 91.0/255.0, green: 184.0/255.0, blue: 91.0/255.0, alpha: 1.0)
+            
+        case "Absence":
+            cell.status.text = "Absence";
+            cell.status.backgroundColor = UIColor(red: 217.0/255.0, green: 83.0/255.0, blue: 78.0/255.0, alpha: 1.0)
             
         case "Cancel":
             cell.status.text = "Cancel";
@@ -108,10 +107,10 @@ class HistoryViewController: UITableViewController , SwipeTableViewCellDelegate{
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         //左
         if orientation == .left {
-//            let deleteAction = SwipeAction(style: .destructive, title: "Test") { action, indexPath in
-//                print("delete")
-//            }
-//            return [deleteAction]
+            //            let deleteAction = SwipeAction(style: .destructive, title: "Test") { action, indexPath in
+            //                print("delete")
+            //            }
+            //            return [deleteAction]
             return []
         }else{
             //右
@@ -236,7 +235,7 @@ class HistoryViewController: UITableViewController , SwipeTableViewCellDelegate{
                         self.bookedList.append(booking)
                     }
                     //sort by date
-                    self.bookedList.sort(by: {$0.start > $1.start})
+                    //self.bookedList.sort(by: {$0.start > $1.start})
                     
                     self.tableView.cr.endHeaderRefresh()
                     self.tableView.reloadData();

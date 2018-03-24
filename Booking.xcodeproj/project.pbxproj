@@ -15,6 +15,8 @@
 		202034B31FFBB3C400DCD534 /* RoomDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202034B21FFBB3C400DCD534 /* RoomDetailViewController.swift */; };
 		202034B81FFBB42E00DCD534 /* DatePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202034B61FFBB42D00DCD534 /* DatePickerController.swift */; };
 		202034B91FFBB42E00DCD534 /* StyleGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202034B71FFBB42E00DCD534 /* StyleGenerator.swift */; };
+		2047044720635CCD003A8CB2 /* RoomsManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047044620635CCD003A8CB2 /* RoomsManageViewController.swift */; };
+		2047044920638A62003A8CB2 /* BookingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047044820638A62003A8CB2 /* BookingsViewController.swift */; };
 		207C5A7E2024733B00739CFC /* Stryng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C5A7D2024733B00739CFC /* Stryng.swift */; };
 		209430CC1FF2248E00F3BDC0 /* IDCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209430CB1FF2248E00F3BDC0 /* IDCardViewController.swift */; };
 		20A6C2742057A9FB0082F6F4 /* DesignableUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6C2732057A9FB0082F6F4 /* DesignableUITextField.swift */; };
@@ -61,6 +63,8 @@
 		202034B21FFBB3C400DCD534 /* RoomDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomDetailViewController.swift; sourceTree = "<group>"; };
 		202034B61FFBB42D00DCD534 /* DatePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerController.swift; sourceTree = "<group>"; };
 		202034B71FFBB42E00DCD534 /* StyleGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleGenerator.swift; sourceTree = "<group>"; };
+		2047044620635CCD003A8CB2 /* RoomsManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsManageViewController.swift; sourceTree = "<group>"; };
+		2047044820638A62003A8CB2 /* BookingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsViewController.swift; sourceTree = "<group>"; };
 		207C5A7D2024733B00739CFC /* Stryng.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stryng.swift; sourceTree = "<group>"; };
 		209430CB1FF2248E00F3BDC0 /* IDCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardViewController.swift; sourceTree = "<group>"; };
 		20A6C2732057A9FB0082F6F4 /* DesignableUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableUITextField.swift; sourceTree = "<group>"; };
@@ -138,6 +142,47 @@
 			path = CalendarKit;
 			sourceTree = "<group>";
 		};
+		2047044220634DC9003A8CB2 /* Admin_Page */ = {
+			isa = PBXGroup;
+			children = (
+				20C1CC76205A6A740008135A /* ScanViewController.swift */,
+				2047044620635CCD003A8CB2 /* RoomsManageViewController.swift */,
+				2047044820638A62003A8CB2 /* BookingsViewController.swift */,
+			);
+			path = Admin_Page;
+			sourceTree = "<group>";
+		};
+		2047044320634DF1003A8CB2 /* library */ = {
+			isa = PBXGroup;
+			children = (
+				20A6C2732057A9FB0082F6F4 /* DesignableUITextField.swift */,
+				207C5A7D2024733B00739CFC /* Stryng.swift */,
+				201B792F205A6D15004CAFEC /* ZZYQRCodeSwift */,
+				202034B51FFBB40900DCD534 /* CalendarKit */,
+			);
+			path = library;
+			sourceTree = "<group>";
+		};
+		2047044420635036003A8CB2 /* User_Page */ = {
+			isa = PBXGroup;
+			children = (
+				20FE3C732037CECF00FEBD6E /* RoomsViewController.swift */,
+				20BF6DD31FE53BA1001FE977 /* HistoryViewController.swift */,
+				202034B21FFBB3C400DCD534 /* RoomDetailViewController.swift */,
+				209430CB1FF2248E00F3BDC0 /* IDCardViewController.swift */,
+			);
+			path = User_Page;
+			sourceTree = "<group>";
+		};
+		204704452063505C003A8CB2 /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				202034B01FFB783800DCD534 /* Booking.swift */,
+				202034AE1FFB735200DCD534 /* Room.swift */,
+			);
+			path = Object;
+			sourceTree = "<group>";
+		};
 		20BF6D971FE50ECD001FE977 = {
 			isa = PBXGroup;
 			children = (
@@ -164,19 +209,12 @@
 			isa = PBXGroup;
 			children = (
 				20BF6DA31FE50ECD001FE977 /* AppDelegate.swift */,
-				201B792F205A6D15004CAFEC /* ZZYQRCodeSwift */,
-				202034B51FFBB40900DCD534 /* CalendarKit */,
-				207C5A7D2024733B00739CFC /* Stryng.swift */,
-				20A6C2732057A9FB0082F6F4 /* DesignableUITextField.swift */,
-				202034B01FFB783800DCD534 /* Booking.swift */,
-				202034AE1FFB735200DCD534 /* Room.swift */,
+				2047044320634DF1003A8CB2 /* library */,
+				204704452063505C003A8CB2 /* Object */,
 				20BF6DA51FE50ECD001FE977 /* LoginViewController.swift */,
 				20BF6DD11FE52D62001FE977 /* RegisterViewController.swift */,
-				20FE3C732037CECF00FEBD6E /* RoomsViewController.swift */,
-				20BF6DD31FE53BA1001FE977 /* HistoryViewController.swift */,
-				202034B21FFBB3C400DCD534 /* RoomDetailViewController.swift */,
-				209430CB1FF2248E00F3BDC0 /* IDCardViewController.swift */,
-				20C1CC76205A6A740008135A /* ScanViewController.swift */,
+				2047044220634DC9003A8CB2 /* Admin_Page */,
+				2047044420635036003A8CB2 /* User_Page */,
 				20BF6DA71FE50ECD001FE977 /* Main.storyboard */,
 				20BF6DAA1FE50ECD001FE977 /* Assets.xcassets */,
 				20BF6DAC1FE50ECD001FE977 /* LaunchScreen.storyboard */,
@@ -514,6 +552,7 @@
 				20FE3C742037CECF00FEBD6E /* RoomsViewController.swift in Sources */,
 				202034B31FFBB3C400DCD534 /* RoomDetailViewController.swift in Sources */,
 				202034B91FFBB42E00DCD534 /* StyleGenerator.swift in Sources */,
+				2047044720635CCD003A8CB2 /* RoomsManageViewController.swift in Sources */,
 				20BF6DD41FE53BA1001FE977 /* HistoryViewController.swift in Sources */,
 				20BF6DD21FE52D62001FE977 /* RegisterViewController.swift in Sources */,
 				202034AF1FFB735200DCD534 /* Room.swift in Sources */,
@@ -521,6 +560,7 @@
 				20BF6DA61FE50ECD001FE977 /* LoginViewController.swift in Sources */,
 				20BF6DA41FE50ECD001FE977 /* AppDelegate.swift in Sources */,
 				202034B81FFBB42E00DCD534 /* DatePickerController.swift in Sources */,
+				2047044920638A62003A8CB2 /* BookingsViewController.swift in Sources */,
 				209430CC1FF2248E00F3BDC0 /* IDCardViewController.swift in Sources */,
 				202034B11FFB783800DCD534 /* Booking.swift in Sources */,
 				20A6C2742057A9FB0082F6F4 /* DesignableUITextField.swift in Sources */,
