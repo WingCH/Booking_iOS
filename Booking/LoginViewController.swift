@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
         //Check Already logged in
         if let user:[String : Any] = self.userDefault.object(forKey: "userInfo") as? [String : Any] {
             print("Already logged in")
-            if user["role"] as! String! == "admin"{
+            if user["role"] as! String? == "admin"{
                 print("Admin! Go to admin page")
                 self.performSegue(withIdentifier: "adminLogin", sender: nil)
             }else{
@@ -77,7 +77,7 @@ class LoginViewController: UIViewController {
                         self.userDefault.set(userArray, forKey: "userInfo")
                         self.userDefault.synchronize()
                         
-                        if userArray["role"] as! String! == "admin"{
+                        if userArray["role"] as! String? == "admin"{
                             print("Admin! Go to admin page")
                             self.performSegue(withIdentifier: "adminLogin", sender: nil)
                         }else{

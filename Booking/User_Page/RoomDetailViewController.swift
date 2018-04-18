@@ -13,6 +13,7 @@ class RoomDetailViewController: DayViewController, DatePickerControllerDelegate 
     let userDefault = UserDefaults.standard
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("你已選擇:",room!)
@@ -78,20 +79,19 @@ class RoomDetailViewController: DayViewController, DatePickerControllerDelegate 
     //長按新增booking https://github.com/richardtop/CalendarKit/issues/116
     override func dayViewDidLongPressTimelineAtHour(_ hour: Int) {
         print("dayViewDidLongPressTimelineAtHour", hour)
-        let now = moment().date.hour;
-        if now >= hour  {
+        let now = moment();
+        let selected = moment((dayView.state?.selectedDate)!).add(hour, .Hours);
+        print("now", now)
+        print("selected", selected)
+
+        //Check 係咩咪過左去
+        if now >= selected  {
             showAlertDialog(animated: true, message: "過去了")
         }else{
-            var user = self.userDefault.object(forKey: "userInfo") as? [String : Any]
-            let start = moment((dayView.state?.selectedDate)!).add(hour+8, .Hours)
+            let start = selected.add(8, .Hours)//UTC+8
             let end = start.add(1, .Hours)
-            let parameters: Parameters = [
-                "user_id": user!["id"]!,
-                "room_id": room!.id,
-                "start": start.date,
-                "end":end.date
-            ]
-            showBookingDialog(parameters: parameters)
+            
+            showBookingDialog(start: start, end: end)
         }
         
     }
@@ -120,26 +120,44 @@ class RoomDetailViewController: DayViewController, DatePickerControllerDelegate 
         //    print("DayView = \(dayView) did move to: \(date)")
     }
     
-    func showBookingDialog(animated: Bool = true, parameters: Parameters) {
+    func showBookingDialog(animated: Bool = true, start:Moment, end:Moment) {
         
+
         // Prepare the popup
         let title = "確認嗎"
-        let message = "時間: \n \(parameters["start"]!) \n to \n \(parameters["end"]!)"
+//        let message = "時間: \n \(start) \n to \n \(end)"
+        var user = self.userDefault.object(forKey: "userInfo") as? [String : Any]
+        let startTime = start;
+        var endTime = end;
         
+
+        
+
         // Create the dialog
         let popup = PopupDialog(title: title,
-                                message: message,
-                                buttonAlignment: .horizontal,
+                                message: "",
+                                buttonAlignment: .vertical,
                                 transitionStyle: .bounceUp,
                                 gestureDismissal: true,
                                 hideStatusBar: false)
+
         // Create first button
         let cancel_Button = CancelButton(title: "CANCEL"){}
         
+        let addHours = DefaultButton(title: "Book 多個鐘", dismissOnTap: false) {
+            endTime = endTime.add(1, .Hours);
+            
+        }
+
         // Create second button
         let booking_button = DefaultButton(title: "OK") {
-            Alamofire.request("http://www.booking.wingpage.net/iOSBookRoom", method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON { response in
-                
+            Alamofire.request("http://www.booking.wingpage.net/iOSBookRoom", method: .post, parameters: [
+                "user_id": user!["id"]!,
+                "room_id": self.room!.id,
+                "start": startTime.date,
+                "end":endTime.date
+                ], encoding: URLEncoding.httpBody).responseJSON { response in
+
                 switch response.result {
                 case .success:
                     print("Booking 成功")
@@ -149,10 +167,10 @@ class RoomDetailViewController: DayViewController, DatePickerControllerDelegate 
                     print(error)
                 }
             }
-            
+
         }
         // Add buttons to dialog
-        popup.addButtons([cancel_Button, booking_button])
+        popup.addButtons([cancel_Button, booking_button, addHours])
         // Present dialog
         self.present(popup, animated: animated, completion: nil)
     }

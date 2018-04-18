@@ -1,22 +1,22 @@
 PODS:
-  - Alamofire (4.6.0)
-  - CalendarKit (0.3.0):
+  - Alamofire (4.7.2)
+  - CalendarKit (0.3.1):
     - DateToolsSwift
     - Neon
-  - CRRefresh (1.0.6)
-  - DateToolsSwift (2.0.3)
+  - CRRefresh (1.0.7)
+  - DateToolsSwift (4.0.0)
   - DynamicBlurView (2.0.2)
   - EFQRCode (4.2.1)
-  - Kingfisher (4.6.2)
+  - Kingfisher (4.7.0)
   - Neon (0.4.0)
-  - NVActivityIndicatorView (4.1.1):
-    - NVActivityIndicatorView/Presenter (= 4.1.1)
-  - NVActivityIndicatorView/Presenter (4.1.1)
-  - PopupDialog (0.7.0):
+  - NVActivityIndicatorView (4.2.0):
+    - NVActivityIndicatorView/Presenter (= 4.2.0)
+  - NVActivityIndicatorView/Presenter (4.2.0)
+  - PopupDialog (0.7.1):
     - DynamicBlurView (~> 2.0)
   - SwiftMoment (0.7)
   - SwiftyJSON (4.0.0)
-  - SwipeCellKit (2.0.1)
+  - SwipeCellKit (2.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
@@ -31,20 +31,20 @@ DEPENDENCIES:
   - SwipeCellKit
 
 SPEC CHECKSUMS:
-  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  CalendarKit: 6a13681eb662d20c22faaa064cb57e0a2a1c4852
-  CRRefresh: fa89bab742592500ce9f76301c152544ec5264e8
-  DateToolsSwift: bf69bf9056d9e53c5c03f06e51f219b9b8b02f9e
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  CalendarKit: d188d78a424c1559a6a5b1ee18c37180fde1498f
+  CRRefresh: 0a77b1b0d81a6a9e1ac611cb748ba3660b89601f
+  DateToolsSwift: 875d97ff9e3a5d54abdd67a269b3f51c757b71ab
   DynamicBlurView: aa6db4defc6e537eb86fc5e58dd3991666178399
   EFQRCode: f3fd67049faa07adb575495c05d72a34e407a940
-  Kingfisher: 55b9c395bf8d3949676ad3861111923990ab68cf
+  Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
   Neon: 7fb5a9327e7e57911843f608e08f4893a74deaf9
-  NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
-  PopupDialog: 4abc6db5b22b7c8029e2162bde8891ee6aa4b6c8
+  NVActivityIndicatorView: 75c9634073e03b31d7e2748cd2417feab1206195
+  PopupDialog: 39598b7d41719f5c025b4b70e62728bae7734fef
   SwiftMoment: dc6dd27012e267819104cbb03f74ff9192dd0b42
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
-  SwipeCellKit: 76888d93d1843dc568fdf38fff21b15dbbcf6b28
+  SwipeCellKit: 8ae09401e1137566b187980d824310129233c959
 
-PODFILE CHECKSUM: 26af389a499cd4aafa49360fee5a4ce71b9a4b70
+PODFILE CHECKSUM: 6b42e99fb6ebf8028b0c60c761846eaf76d2bb92
 
 COCOAPODS: 1.2.0

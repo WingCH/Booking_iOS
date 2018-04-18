@@ -31,11 +31,13 @@ public class FastAnimator: UIView, CRRefreshProtocol {
     
     public var insets: UIEdgeInsets = .zero
     
-    public var trigger: CGFloat = 100.0
+    public var trigger: CGFloat = 55.0
     
-    public var execute: CGFloat = 60.0
+    public var execute: CGFloat = 55.0
     
     public var endDelay: CGFloat = 1
+    
+    public var hold: CGFloat = 55.0
     
     private(set) var color: UIColor = .init(rgb: (214, 214, 214))
     
@@ -86,7 +88,7 @@ public class FastAnimator: UIView, CRRefreshProtocol {
         super.layoutSubviews()
         if fastLayer == nil {
             let width  = frame.width
-            let height = frame.height+30
+            let height = frame.height
             fastLayer = FastLayer(frame: .init(x: width/2 - 14, y: height/2 - 14, width: 28, height: 28), color: color, arrowColor: arrowColor, lineWidth: lineWidth)
             layer.addSublayer(fastLayer!)
         }

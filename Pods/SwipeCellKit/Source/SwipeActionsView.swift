@@ -36,8 +36,18 @@ class SwipeActionsView: UIView {
         return actions.reduce(0, { initial, next in max(initial, next.image?.size.height ?? 0) })
     }
     
+    var safeAreaMargin: CGFloat {
+        guard #available(iOS 11, *) else { return 0 }
+        guard let tableView = (superview as? SwipeTableViewCell)?.tableView else { return 0 }
+        
+        return orientation == .left ? tableView.safeAreaInsets.left : tableView.safeAreaInsets.right
+    }
+
     var visibleWidth: CGFloat = 0 {
         didSet {
+            // If necessary, adjust for safe areas
+            visibleWidth = max(0, visibleWidth - safeAreaMargin)
+
             let preLayoutVisibleWidths = transitionLayout.visibleWidthsForViews(with: layoutContext)
 
             layoutContext = ActionsViewLayoutContext.newContext(for: self)
@@ -51,9 +61,9 @@ class SwipeActionsView: UIView {
                                       newWidths: transitionLayout.visibleWidthsForViews(with: layoutContext))
         }
     }
- 
+
     var preferredWidth: CGFloat {
-        return minimumButtonWidth * CGFloat(actions.count)
+        return minimumButtonWidth * CGFloat(actions.count) + safeAreaMargin
     }
 
     var contentSize: CGSize {
@@ -114,7 +124,8 @@ class SwipeActionsView: UIView {
         })
         
         let maximum = options.maximumButtonWidth ?? (size.width - 30) / CGFloat(actions.count)
-        minimumButtonWidth = buttons.reduce(options.minimumButtonWidth ?? 74, { initial, next in max(initial, next.preferredWidth(maximum: maximum)) })
+        let minimum = options.minimumButtonWidth ?? min(maximum, 74)
+        minimumButtonWidth = buttons.reduce(minimum, { initial, next in max(initial, next.preferredWidth(maximum: maximum)) })
         
         buttons.enumerated().forEach { (index, button) in
             let action = actions[index]
@@ -193,10 +204,10 @@ class SwipeActionsView: UIView {
                 let newWidth = newWidths[index]
                 if oldWidth != newWidth {
                     let context = SwipeActionTransitioningContext(actionIdentifier: self.actions[index].identifier,
-                                                             button: self.buttons[index],
-                                                             newPercentVisible: newWidth / self.minimumButtonWidth,
-                                                             oldPercentVisible: oldWidth / self.minimumButtonWidth,
-                                                             wrapperView: self.subviews[index])
+                                                                  button: self.buttons[index],
+                                                                  newPercentVisible: newWidth / self.minimumButtonWidth,
+                                                                  oldPercentVisible: oldWidth / self.minimumButtonWidth,
+                                                                  wrapperView: self.subviews[index])
                     
                     self.actions[index].transitionDelegate?.didTransition(with: context)
                 }
