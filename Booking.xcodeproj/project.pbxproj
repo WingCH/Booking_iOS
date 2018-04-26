@@ -30,6 +30,7 @@
 		20BF6DD21FE52D62001FE977 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BF6DD11FE52D62001FE977 /* RegisterViewController.swift */; };
 		20BF6DD41FE53BA1001FE977 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BF6DD31FE53BA1001FE977 /* HistoryViewController.swift */; };
 		20C1CC77205A6A740008135A /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C1CC76205A6A740008135A /* ScanViewController.swift */; };
+		20FB693F2091F6BC004D51C4 /* AddRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB693E2091F6BC004D51C4 /* AddRoomViewController.swift */; };
 		20FE3C742037CECF00FEBD6E /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE3C732037CECF00FEBD6E /* RoomsViewController.swift */; };
 		8B3AEB08BB1FB5AB40676B8B /* Pods_BookingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07590099FE1E04946E916913 /* Pods_BookingTests.framework */; };
 		9063060CA7FB4450D40E1CFE /* Pods_Booking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894EB893C443391628107BE3 /* Pods_Booking.framework */; };
@@ -84,6 +85,7 @@
 		20BF6DD11FE52D62001FE977 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		20BF6DD31FE53BA1001FE977 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		20C1CC76205A6A740008135A /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		20FB693E2091F6BC004D51C4 /* AddRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomViewController.swift; sourceTree = "<group>"; };
 		20FE3C732037CECF00FEBD6E /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		61A29A2BFD5CD7E8583D5EA4 /* Pods-BookingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookingTests/Pods-BookingTests.release.xcconfig"; sourceTree = "<group>"; };
 		67BA77E21F63A8D6603039C4 /* Pods-Booking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Booking.release.xcconfig"; path = "Pods/Target Support Files/Pods-Booking/Pods-Booking.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				20C1CC76205A6A740008135A /* ScanViewController.swift */,
 				2047044620635CCD003A8CB2 /* RoomsManageViewController.swift */,
 				2047044820638A62003A8CB2 /* BookingsViewController.swift */,
+				20FB693E2091F6BC004D51C4 /* AddRoomViewController.swift */,
 			);
 			path = Admin_Page;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				201B7933205A6D15004CAFEC /* AVCaptureSessionManager.swift in Sources */,
 				20BF6DA61FE50ECD001FE977 /* LoginViewController.swift in Sources */,
 				20BF6DA41FE50ECD001FE977 /* AppDelegate.swift in Sources */,
+				20FB693F2091F6BC004D51C4 /* AddRoomViewController.swift in Sources */,
 				202034B81FFBB42E00DCD534 /* DatePickerController.swift in Sources */,
 				2047044920638A62003A8CB2 /* BookingsViewController.swift in Sources */,
 				209430CC1FF2248E00F3BDC0 /* IDCardViewController.swift in Sources */,

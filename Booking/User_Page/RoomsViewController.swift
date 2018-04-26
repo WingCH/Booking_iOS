@@ -36,7 +36,7 @@ class RoomsViewController: UITableViewController {
     }
 
     @objc func handleRefresh(refreshControl: UIRefreshControl) {
-        DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
             self.getData()
         })
     }

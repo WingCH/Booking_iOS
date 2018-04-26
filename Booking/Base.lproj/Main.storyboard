@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zpi-6N-FGI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zpi-6N-FGI">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -214,6 +214,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Room" id="gRS-4R-YPA"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="DbS-7c-mQg">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <attributedString key="attributedTitle"/>
                     </refreshControl>
@@ -259,6 +260,92 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B5t-2B-WyR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1809" y="1790"/>
+        </scene>
+        <!--Add Room View Controller-->
+        <scene sceneID="emZ-Xt-XDu">
+            <objects>
+                <viewController id="VQn-k3-viF" customClass="AddRoomViewController" customModule="Booking" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tbu-aW-NiH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Room name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EaX-Eg-cI2">
+                                <rect key="frame" x="18" y="117" width="378" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wFY-du-cPS">
+                                <rect key="frame" x="18.333333333333343" y="181" width="378" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sZ8-YK-nJh">
+                                <rect key="frame" x="18.333333333333343" y="255" width="378" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3n-T8-jLf">
+                                <rect key="frame" x="18" y="331" width="378" height="30"/>
+                                <state key="normal" title="Selert Photo"/>
+                                <connections>
+                                    <action selector="selertRoomPhoto:" destination="VQn-k3-viF" eventType="touchUpInside" id="dmc-nU-M9j"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Opb-Iw-Ltx">
+                                <rect key="frame" x="18" y="369" width="378" height="176"/>
+                                <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Opb-Iw-Ltx" secondAttribute="height" multiplier="189:88" id="1LS-C3-zsX"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXD-WR-LIw">
+                                <rect key="frame" x="19" y="576" width="377" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitBtn:" destination="VQn-k3-viF" eventType="touchUpInside" id="hRa-Ua-ObZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="E3n-T8-jLf" firstAttribute="trailing" secondItem="sZ8-YK-nJh" secondAttribute="trailing" id="31O-lc-dr2"/>
+                            <constraint firstItem="EaX-Eg-cI2" firstAttribute="top" secondItem="MMY-Pl-DRx" secondAttribute="top" constant="53" id="35w-VM-a50"/>
+                            <constraint firstItem="wFY-du-cPS" firstAttribute="top" secondItem="EaX-Eg-cI2" secondAttribute="bottom" constant="34.000000000001364" id="Boc-hq-Ctr"/>
+                            <constraint firstItem="Opb-Iw-Ltx" firstAttribute="trailing" secondItem="E3n-T8-jLf" secondAttribute="trailing" id="DEI-5W-9th"/>
+                            <constraint firstItem="Opb-Iw-Ltx" firstAttribute="width" secondItem="E3n-T8-jLf" secondAttribute="width" id="DUo-Ec-gqx"/>
+                            <constraint firstItem="sZ8-YK-nJh" firstAttribute="top" secondItem="wFY-du-cPS" secondAttribute="bottom" constant="44.000000000000455" id="Dmv-3A-1ye"/>
+                            <constraint firstItem="Opb-Iw-Ltx" firstAttribute="leading" secondItem="E3n-T8-jLf" secondAttribute="leading" id="FMz-EM-bC8"/>
+                            <constraint firstItem="wFY-du-cPS" firstAttribute="leading" secondItem="EaX-Eg-cI2" secondAttribute="leading" id="HcH-Kn-Rdr"/>
+                            <constraint firstItem="hXD-WR-LIw" firstAttribute="trailing" secondItem="Opb-Iw-Ltx" secondAttribute="trailing" id="KXZ-8g-23P"/>
+                            <constraint firstItem="sZ8-YK-nJh" firstAttribute="trailing" secondItem="wFY-du-cPS" secondAttribute="trailing" id="Nif-3s-v8g"/>
+                            <constraint firstItem="EaX-Eg-cI2" firstAttribute="leading" secondItem="MMY-Pl-DRx" secondAttribute="leading" constant="18.445707822425447" id="V19-0i-LCe"/>
+                            <constraint firstItem="Opb-Iw-Ltx" firstAttribute="centerX" secondItem="E3n-T8-jLf" secondAttribute="centerX" id="bva-cj-QhP"/>
+                            <constraint firstItem="sZ8-YK-nJh" firstAttribute="leading" secondItem="wFY-du-cPS" secondAttribute="leading" id="dVt-L3-QkY"/>
+                            <constraint firstItem="E3n-T8-jLf" firstAttribute="leading" secondItem="sZ8-YK-nJh" secondAttribute="leading" id="dhS-6A-hxw"/>
+                            <constraint firstItem="E3n-T8-jLf" firstAttribute="top" secondItem="sZ8-YK-nJh" secondAttribute="bottom" constant="46" id="euF-Sb-dcD"/>
+                            <constraint firstItem="wFY-du-cPS" firstAttribute="width" secondItem="EaX-Eg-cI2" secondAttribute="width" id="hmt-fw-8Nw"/>
+                            <constraint firstItem="wFY-du-cPS" firstAttribute="height" secondItem="EaX-Eg-cI2" secondAttribute="height" id="iNY-V3-ZU8"/>
+                            <constraint firstItem="EaX-Eg-cI2" firstAttribute="centerX" secondItem="MMY-Pl-DRx" secondAttribute="centerX" id="jBg-2H-eC6"/>
+                            <constraint firstItem="MMY-Pl-DRx" firstAttribute="bottom" secondItem="hXD-WR-LIw" secondAttribute="bottom" constant="81" id="nvq-zv-5Sz"/>
+                            <constraint firstItem="hXD-WR-LIw" firstAttribute="top" secondItem="Opb-Iw-Ltx" secondAttribute="bottom" constant="31" id="rdJ-sy-BEZ"/>
+                            <constraint firstItem="Opb-Iw-Ltx" firstAttribute="top" secondItem="E3n-T8-jLf" secondAttribute="bottom" constant="8" id="wKx-eJ-PYI"/>
+                            <constraint firstItem="hXD-WR-LIw" firstAttribute="centerX" secondItem="Opb-Iw-Ltx" secondAttribute="centerX" id="wYn-vu-1O4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MMY-Pl-DRx"/>
+                    </view>
+                    <connections>
+                        <outlet property="roomAddress" destination="sZ8-YK-nJh" id="BpE-82-ikK"/>
+                        <outlet property="roomDescription" destination="wFY-du-cPS" id="Mvc-rc-qrJ"/>
+                        <outlet property="roomName" destination="EaX-Eg-cI2" id="vxl-9e-tN9"/>
+                        <outlet property="roomPhotoVC" destination="Opb-Iw-Ltx" id="6Zn-NW-XPN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I2f-B0-jlE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3566.666666666667" y="2085.326086956522"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XFx-Qn-x8D">
@@ -578,7 +665,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fR2-iL-6Nt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1810" y="152"/>
+            <point key="canvasLocation" x="1809" y="152"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qKc-ds-c1L">
@@ -752,8 +839,15 @@
                             <outlet property="delegate" destination="hbn-6N-FhK" id="lxu-H3-Yz3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Room" id="LId-Aw-w9U"/>
+                    <navigationItem key="navigationItem" title="Room" id="LId-Aw-w9U">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="Kn9-oS-f8J">
+                            <connections>
+                                <segue destination="VQn-k3-viF" kind="show" id="RNZ-RL-iFS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="v0j-e9-ncC">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <attributedString key="attributedTitle"/>
                     </refreshControl>

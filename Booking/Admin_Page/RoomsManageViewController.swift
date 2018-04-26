@@ -37,7 +37,7 @@ class RoomsManageViewController: UITableViewController{
     }
     
     @objc func handleRefresh(refreshControl: UIRefreshControl) {
-        DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
             self.getData()
         })
     }
@@ -64,6 +64,7 @@ class RoomsManageViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "roomsCell", for: indexPath) as! RoomsManageCell
         // /photo/rooms/Meeting Room.jpg -> /photo/rooms/Meeting%20Room.jpg
+        print(roomList.count)
         let path = roomList[indexPath.row].backgroundImage.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         let image_url = URL(string: "http://www.booking.wingpage.net\(path!)")
         
@@ -93,7 +94,7 @@ class RoomsManageViewController: UITableViewController{
     }
 
     func getData() {
-        self.roomList.removeAll()
+        self.roomList = []
         Alamofire.request("http://www.booking.wingpage.net/iOSGetRoomList").response { response in
             // method defaults to `.get`
             if let data = response.data{
