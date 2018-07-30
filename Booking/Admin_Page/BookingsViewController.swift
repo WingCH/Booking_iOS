@@ -198,7 +198,7 @@ class BookingsViewController: DayViewController, DatePickerControllerDelegate {
                 do{
                     let events: JSON = try JSON(data: data)
                     for (_,subJson):(String, JSON) in events {
-                        print(subJson["user"]["name"].string!)
+//                        print(subJson["user"]["name"].string!)
                         let booking : Booking = Booking(id: subJson["id"].int!,
                                                         room_id: subJson["room_id"].int!,
                                                         user_id: subJson["user_id"].int!,
