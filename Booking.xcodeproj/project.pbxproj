@@ -18,6 +18,7 @@
 		2047044720635CCD003A8CB2 /* RoomsManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047044620635CCD003A8CB2 /* RoomsManageViewController.swift */; };
 		2047044920638A62003A8CB2 /* BookingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047044820638A62003A8CB2 /* BookingsViewController.swift */; };
 		207C5A7E2024733B00739CFC /* Stryng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C5A7D2024733B00739CFC /* Stryng.swift */; };
+		207CB1B6210EF88B00EAEF67 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 207CB1B5210EF88B00EAEF67 /* README.md */; };
 		209430CC1FF2248E00F3BDC0 /* IDCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209430CB1FF2248E00F3BDC0 /* IDCardViewController.swift */; };
 		20A6C2742057A9FB0082F6F4 /* DesignableUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6C2732057A9FB0082F6F4 /* DesignableUITextField.swift */; };
 		20BF6DA41FE50ECD001FE977 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BF6DA31FE50ECD001FE977 /* AppDelegate.swift */; };
@@ -67,6 +68,7 @@
 		2047044620635CCD003A8CB2 /* RoomsManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsManageViewController.swift; sourceTree = "<group>"; };
 		2047044820638A62003A8CB2 /* BookingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsViewController.swift; sourceTree = "<group>"; };
 		207C5A7D2024733B00739CFC /* Stryng.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stryng.swift; sourceTree = "<group>"; };
+		207CB1B5210EF88B00EAEF67 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		209430CB1FF2248E00F3BDC0 /* IDCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardViewController.swift; sourceTree = "<group>"; };
 		20A6C2732057A9FB0082F6F4 /* DesignableUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableUITextField.swift; sourceTree = "<group>"; };
 		20BF6DA01FE50ECD001FE977 /* Booking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booking.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +197,7 @@
 				20BF6DA11FE50ECD001FE977 /* Products */,
 				2764E0CE60F8C61D647DA617 /* Pods */,
 				73810BE153EEE12FEEF95634 /* Frameworks */,
+				207CB1B5210EF88B00EAEF67 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -385,6 +388,7 @@
 			files = (
 				20BF6DAE1FE50ECD001FE977 /* LaunchScreen.storyboard in Resources */,
 				20BF6DAB1FE50ECD001FE977 /* Assets.xcassets in Resources */,
+				207CB1B6210EF88B00EAEF67 /* README.md in Resources */,
 				20BF6DA91FE50ECD001FE977 /* Main.storyboard in Resources */,
 				201B7935205A6D15004CAFEC /* ZZYQRCode.bundle in Resources */,
 			);
